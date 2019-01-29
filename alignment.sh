@@ -12,6 +12,7 @@ echo "Files loaded"
 ## Align multishell dwi to acpc-aligned single shell dwi from dtiinit
 echo "Aligning multishell dwi to acpc-space"
 mkdir alignment;
+mkdir dwi;
 
 # Create b0 from dtiinit
 select_dwi_vols \
@@ -43,9 +44,9 @@ flirt \
 	-applyxfm;
 
 # Clean up and change directory
-mv ./alignment/dwi.nii.gz ./;
+mv ./alignment/dwi.nii.gz ./dwi/;
 mv ./alignment/acpcxform.mat ./;
 rm -rf ./alignment;
-cp -v ${bvals} dwi.bvals;
+cp -v ${bvals} ./dwi/dwi.bvals;
 
 echo "alignment complete"
