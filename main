@@ -11,7 +11,9 @@ time singularity exec -e docker://brainlife/fsl:5.0.9 ./alignment.sh
 # rotate bvecs
 time singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./rotation/rotateBvecs
 
-if [ ! -s dwi.nii.gz ];
+mv dwi.bvecs ./dwi/dwi.bvecs;
+
+if [ ! -s ./dwi/dwi.nii.gz ];
 then
 	echo "Aligned dwi missing"
 	exit 1
