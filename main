@@ -3,8 +3,6 @@
 #PBS -N dwiAlignDtiinit
 #PBS -V
 
-module load singularity 2> /dev/null
-
 # alignment
 time singularity exec -e docker://brainlife/fsl:5.0.9 ./alignment.sh
 
