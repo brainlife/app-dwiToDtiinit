@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.153-blue.svg)](https://doi.org/10.25663/bl.app.153)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.153-blue.svg)](https://doi.org/10.25663/brainlife.app.153)
 
 # app-dwiToDtiinit
 This app will align DWI data (multi-shell or single-shell) to a DTIINIT output DWI. This may be need to be done when DTIINIT was used for T1 alignment and tracking and the user wants to fit a model that requires multi-shell DWI and map the measures to tracking (i.e. tract profiles). This app requires DWI and DTIINIT inputs and will output an aligned DWI output. This app uses FSL Flirt to do alignment.
@@ -19,7 +19,7 @@ This app will align DWI data (multi-shell or single-shell) to a DTIINIT output D
 
 ### On Brainlife.io
 
-You can submit this App online at [https://doi.org/10.25663/bl.app.153](https://doi.org/10.25663/bl.app.53) via the "Execute" tab.
+You can submit this App online at [https://doi.org/10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153) via the "Execute" tab.
 
 ### Running Locally (on your machine)
 
