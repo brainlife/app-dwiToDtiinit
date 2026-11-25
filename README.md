@@ -10,9 +10,9 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-> 📍 **This branch, `v1.0.0`, is the brainlife.io App Align DWI to Dtiinit** ([doi:10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153)).
+> **This branch, `v1.0.0`, is the brainlife.io App Align DWI to Dtiinit** ([doi:10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153)).
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -22,20 +22,20 @@ Registers the mean b0 of the input DWI to the b0 of the dtiInit-aligned DWI with
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/dwi` · `neuro/dtiinit` |
-| 📤 **Outputs** | `neuro/dwi` |
-| 🐳 **Container** | `brainlife/fsl:5.0.9` |
-| ⚙️ **Resources** | 1 CPUs · 0.25 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153) |
+| **Inputs** | `neuro/dwi` · `neuro/dtiinit` |
+| **Outputs** | `neuro/dwi` |
+| **Container** | `brainlife/fsl:5.0.9` |
+| **Resources** | 1 CPUs · 0.25 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `input_dwi` | `neuro/dwi` | yes | The path to the dwi datatype to be aligned |
 | `dtiinit` | `neuro/dtiinit` | yes | The path to the top directory containing the output from DTIINIT |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -43,15 +43,15 @@ Registers the mean b0 of the input DWI to the b0 of the dtiInit-aligned DWI with
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/brainlife.app.153](https://doi.org/10.25663/brainlife.app.153), choose a `neuro/dwi` dataset and the `neuro/dtiinit` output it should be aligned to, and press **Execute**. The aligned DWI is archived to your project as a new `neuro/dwi` dataset.
 
 Use it when dtiInit was used for T1 alignment and tracking and you want to fit a model that needs the original (for example multi-shell) DWI, and map its measures onto the tracking results (for example tract profiles).
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqlang.github.io/jq/). The App runs FSL 5.0.9 from `brainlife/fsl:5.0.9` and a compiled MATLAB program (vistasoft `dtiRawReorientBvecs`, with jsonlab) from `brainlife/mcr:neurodebian1604-r2017a`.
 
@@ -73,7 +73,7 @@ You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqla
    ./main
    ```
 
-### 🧪 Sample data
+### Sample data
 
 Download a sample dtiInit output and DWI from brainlife.io with the [brainlife CLI](https://github.com/brainlife/cli):
 
@@ -85,7 +85,7 @@ bl dataset download 5c45e58c287fa00144a33567 && mv 5c45e58c287fa00144a33567 inpu
 bl dataset download 5b96bbf2059cf900271924f3 && mv 5b96bbf2059cf900271924f3 input/dwi
 ```
 
-## 📦 Outputs
+## Outputs
 
 The App extracts the b0 volumes of both images, estimates a FLIRT transform from the DWI b0 to the dtiInit b0 (`dwi_aligned_trilin_noMEC`), applies it to the whole DWI and rotates the bvecs with the same transform.
 
@@ -97,11 +97,11 @@ dwi/
 acpcxform.mat     FLIRT transform from the input DWI to the dtiInit DWI
 ```
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`Aligned dwi missing`**: FLIRT did not produce the aligned DWI. Check the log and make sure both inputs have b=0 volumes.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -111,13 +111,13 @@ acpcxform.mat     FLIRT transform from the input DWI to the dtiInit DWI
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. *Scientific Data* 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
-## 👥 Authors
+## Authors
 
 - Brad Caron
 
 **Contributors:** Soichi Hayashi, Franco Pestilli
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -136,6 +136,6 @@ acpcxform.mat     FLIRT transform from the input DWI to the dtiInit DWI
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 MIT; see the [`LICENSE`](https://github.com/brainlife/app-dwiToDtiinit/blob/v1.0.0/LICENSE) file on the `v1.0.0` branch. FSL itself is distributed under its own [license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence).
